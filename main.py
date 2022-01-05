@@ -25,9 +25,14 @@ for word in wordlist:
 
 print(f"Valid 5-letter words: {len(wordlist)}")
 
-best_yellow = max(yellow_scores, key=yellow_scores.get)
-print(f"Best Yellow: {best_yellow}; score: {yellow_scores[best_yellow]}")
+best_yellow_score = max(yellow_scores.values())
+tied_yellow = [word for word, score in yellow_scores.items() if score == best_yellow_score]
+best_yellow = max(tied_yellow, key=lambda word: green_scores[word])
 
-best_green = max(green_scores, key=green_scores.get)
-print(f"Best Green: {best_green}; score: {green_scores[best_green]}")
+print(f"Best Yellow: {best_yellow}\n\t score: y={yellow_scores[best_yellow]}, g={green_scores[best_yellow]}")
 
+best_green_score = max(green_scores.values())
+tied_green = [word for word, score in green_scores.items() if score == best_green_score]
+best_green = max(tied_green, key=lambda word: yellow_scores[word])
+
+print(f"Best Green: {best_green}\n\t score: g={green_scores[best_green]}, y={yellow_scores[best_green]}")
