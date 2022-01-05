@@ -1,0 +1,5 @@
+Valid 5-letter words: 9889
+Best Yellow: raise
+	 score: y=17637, g=4866
+Best Green: soree
+	 score: g=6204, y=12745
