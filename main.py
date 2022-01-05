@@ -3,11 +3,6 @@ wordlist = []
 letter_used_counts = {l: 0 for l in alphabet}
 letter_in_position = {i: {l: 0 for l in alphabet} for i in range(5)}
 
-# Note: you can use any source of dictionary words that you'd like,
-# but linux comes with Webster's Second International Dictionary
-# I generated my words.txt with:
-# cat /usr/share/dict/web2 /usr/share/dict/propernames | sort | uniq -c | grep -v 2 | awk "{$1=1};1" | cut -f 2 -d ' '
-# to combine the "all words" list with the "proper nouns" list, remove the duplicates, and re-isolate the word part
 with open("words.txt") as file:
     for line in file:
         word = line.strip().lower()
